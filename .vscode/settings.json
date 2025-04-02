@@ -1,3 +1,6 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "editor.suggest.showStatusBar": true,
+    "zenMode.hideActivityBar": true,
+    "zenMode.hideStatusBar": false
 }

@@ -2,3 +2,104 @@
     text-decoration: line-through;
     color: gray;
 }
+
+/* Mantendo os ícones normais */
+.icons {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.icons i {
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5px;
+    color: inherit; /* Mantém a cor original */
+}
+
+
+/* Fonte e fundo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+/* Estilo do título */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3c00ff;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+/* Container da lista */
+.task-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Campo de entrada */
+#taskInput {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Botão Adicionar */
+#addTaskBtn {
+    background: linear-gradient(to right, #3c00ff, #ff00ff);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+#addTaskBtn:hover {
+    background: linear-gradient(to right, #ff00ff, #3c00ff);
+}
+
+/* Lista de tarefas */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 400px;
+    margin: auto;
+}
+
+li {
+    background-color: white;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícones */
+.icon {
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.trash {
+    color: red;
+}
+
+.edit {
+    color: orange;
+}
+
+.check {
+    color: green;
+}
