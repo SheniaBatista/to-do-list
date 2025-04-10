@@ -1,0 +1,114 @@
+.completed {
+    text-decoration: line-through;
+    color: rgb(151, 151, 151);
+}
+
+
+/* Fonte e fundo */
+body {
+    font-family: "Overpass", sans-serif;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+/* Estilo do título */
+
+h1 {
+    font-family: "Overpass", sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 100px;
+    background: linear-gradient(to right, #07FDFD, #4d69fe, #CC00FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Container da lista */
+.task-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Campo de entrada */
+#taskInput {
+    width: 600px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+/* Botão Adicionar */
+#addTaskBtn {
+    background: linear-gradient(to right, #07FDFD, #4d69fe, #CC00FF);
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.4s;
+
+}
+
+#addTaskBtn:hover {
+    background: linear-gradient(to right, #CC00FF ,#4d69fe, #07FDFD);
+}
+
+/* Lista de tarefas */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 780px;
+    margin:auto;
+}
+
+/* lista de itens icones texto etc */
+li 
+    {
+        background-color: white;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 2px;
+        width: 750px;
+        border: 0px solid #000;
+    } 
+
+li,span{
+
+        display:flex;
+        justify-content:flex-start;
+        align-items:flex-start;
+        width: 700px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+button {
+    border: none;
+    background: transparent;
+    padding: 5px;
+    cursor: pointer;
+}
+
+button img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s;
+}
+
+
