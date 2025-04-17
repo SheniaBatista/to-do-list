@@ -14,6 +14,35 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Função para salvar no localstorage
+    function salvarTarefa (tarefa) {
+        let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+        tarefas.push(tarefa);
+        localStorage.setItem("tarefas",JSON.stringify(tarefas));
+    }
+
+    //Carrega as tarefas ao abrir a página
+    window.onload = function () {
+        let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+        tarefas.forEach(tarefa => {
+            addTask(tarefa); 
+        });
+    }
+    
+    //Função que adiciona a tarefa na tela
+    function adicionarTarefaNaTela(tarefa){
+        const item = document.createElement("li")
+        item.textContent = tarefa;
+        taskList.appendChild(item);
+    }
+
+    //Apagar do localstorage quando apagar da tela
+    function deletarTarefa(tarefa){
+        let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+        tarefas = tarefas.filter(item => item !== tarefa);
+        localStorage.setItem("tarefas", JSON.stringify(tarefas));
+    }
+
     function handleAddTask() {
         const taskText = input.value.trim();
         if (taskText !== "") {
@@ -37,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function addTask(taskText) {
         const listItem = document.createElement("li");
         const formattedTaskText = formatText(taskText);
+        salvarTarefa(formattedTaskText); 
 
         const taskSpan = document.createElement("span");
         taskSpan.textContent = formattedTaskText;
@@ -67,7 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
         deleteIcon.alt = "Deletar";
         deleteIcon.classList.add("icon");
         deleteBtn.appendChild(deleteIcon);
-        deleteBtn.addEventListener("click", () => listItem.remove());
+        deleteBtn.addEventListener("click", () => {
+            deletarTarefa(formattedTaskText);
+            listItem.remove();
+        });
 
         listItem.appendChild(taskSpan);
         listItem.appendChild(completeBtn);
