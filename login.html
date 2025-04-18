@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Lista de Tarefas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+    <input type="text" id="username" placeholder="Usuário" />
+    <input type="password" id="password" placeholder="Senha" />
+    <button onclick="fazerLogin()">Entrar</button>
+    <p>Não tem conta? <a href="register.html">Cadastre-se</a></p>
+  </div>
+
+  <script>
+    function fazerLogin() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+
+      if (!username || !password) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      const dadosSalvos = localStorage.getItem("usuario_" + username);
+
+      if (!dadosSalvos) {
+        alert("Usuário não encontrado.");
+        return;
+      }
+
+      const user = JSON.parse(dadosSalvos);
+
+      if (user.password !== password) {
+        alert("Senha incorreta!");
+        return;
+      }
+
+      localStorage.setItem("usuarioLogado", username);
+      window.location.href = "index.html";
+    }
+
+    window.onload = () => {
+      if (localStorage.getItem("usuarioLogado")) {
+        window.location.href = "index.html";
+      }
+    };
+  </script>
+</body>
+</html>

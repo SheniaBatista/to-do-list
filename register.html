@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    
+    <h1>Cadastro</h1>
+<input type="text" id="newUsername" placeholder="Nome de usuário" />
+<input type="email" id="email" placeholder="E-mail" />
+<input type="password" id="newPassword" placeholder="Senha" />
+<input type="password" id="confirmPassword" placeholder="Confirme a senha" />
+<button onclick="registrarUsuario()">Cadastrar</button>
+<p>Já tem conta? <a href="login.html">Faça login</a></p>
+
+
+  <script>
+    function validarSenha(senha) {
+      const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+      const sequencias = ["12345678", "23456789", "34567890", "01234567"];
+
+      if (!regex.test(senha)) {
+        alert("A senha deve ter no mínimo 8 caracteres, incluir uma letra maiúscula e um caractere especial.");
+        return false;
+      }
+
+      for (let seq of sequencias) {
+        if (senha.includes(seq)) {
+          alert("A senha não pode conter números sequenciais.");
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    function registrarUsuario() {
+      const username = document.getElementById("newUsername").value.trim();
+      const password = document.getElementById("newPassword").value;
+
+      if (!username || !password) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      if (!validarSenha(password)) return;
+
+      const userData = { username, password };
+      localStorage.setItem("usuario_" + username, JSON.stringify(userData));
+      alert("Usuário cadastrado com sucesso!");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
